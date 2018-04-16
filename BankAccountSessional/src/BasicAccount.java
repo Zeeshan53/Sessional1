@@ -2,6 +2,7 @@
 public class BasicAccount implements InterfaceofAccount {
 	String  id, accountnumber;
 	double balance;
+	
 	public BasicAccount(String id, String accountnumber,double balance)
 	{
 		this.accountnumber=accountnumber;
@@ -49,6 +50,7 @@ public class BasicAccount implements InterfaceofAccount {
 			double withdr = totalamount - balance;
 			System.out.println("The amount withdrawn is = " + withdr+"PKR" );
 			double newbalance = balance;
+			System.out.println("The Amount Deposited is" );
 			setbalance(newbalance);
 			System.out.print("The remaining Balance is = " + newbalance+"PKR");
 		}

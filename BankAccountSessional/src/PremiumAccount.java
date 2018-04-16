@@ -1,10 +1,14 @@
 
 public class PremiumAccount extends GoldAccount{
-	String  id, accountnumber;
 	double balance =100000; // can be PKR or $
-	public PremiumAccount(String id, String accountnumber,double balance)
+	private GoldAccount goldaccount;
+	String id;
+	String accountnumber;
+	
+	public PremiumAccount(String id,String accountnumber,double balance,GoldAccount goldaccount,BasicAccount basicaccount)
 	{
-		super(id,accountnumber,balance);
+		super(id,accountnumber,balance, basicaccount);
+		this.goldaccount=goldaccount;
 	}
 	public void display()
 	{
@@ -15,6 +19,7 @@ public class PremiumAccount extends GoldAccount{
 	}
 	public void withdrawal()
 	{
+		goldaccount.withdrawal();
 		double totalamount = 50000;
 		if(balance < totalamount)
 		{
@@ -22,6 +27,7 @@ public class PremiumAccount extends GoldAccount{
 			double withdr = totalamount - balance;
 			System.out.println("The amount withdrawn is =  PKR" + withdr );
 			double newbalance = balance;
+			System.out.println("The Amount Deposited is");
 			setbalance(newbalance);
 			System.out.print("The remaining Balance is = " + newbalance);
 		}

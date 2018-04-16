@@ -1,10 +1,12 @@
 
 public class GoldAccount extends BasicAccount{
 	String  id, accountnumber;
-	double balance =1000000;
-	public GoldAccount(String id, String accountnumber,double balance)
+	double balance =100000;
+	private BasicAccount basicaccount;//Object Creation here
+	public GoldAccount(String id, String accountnumber,double balance,BasicAccount basicaccount)
 	{
 		super(id,accountnumber,balance);
+		this.basicaccount=basicaccount;
 	}
 	public void display()
 	{
@@ -15,6 +17,7 @@ public class GoldAccount extends BasicAccount{
 	}
 	public void withdrawal()
 	{
+		basicaccount.withdrawal();
 		double totalamount = 100000;
 		if(balance < totalamount)
 		{
@@ -22,12 +25,13 @@ public class GoldAccount extends BasicAccount{
 			double withdr = totalamount - balance;
 			System.out.println("The amount withdrawn is = " + withdr +"PKR");
 			double newbalance = balance;
+			System.out.println("The Amount Deposited is");
 			setbalance(newbalance);
 			System.out.print("The remaining Balance is = " + newbalance+"PKR");
 		}
 		else
 		{
-			System.out.println("Amount Exceeded the limit");
+			System.out.println("\n"+" Amount Exceeded the limit");
 		}
 	}
 
